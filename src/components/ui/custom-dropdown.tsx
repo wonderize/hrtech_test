@@ -26,9 +26,7 @@ const CustomDropdown = ({
   user: { avatar, name },
 }: CustomDropdownProps) => {
   const [_, startTransition] = useTransition()
-
-  _
-
+  
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
