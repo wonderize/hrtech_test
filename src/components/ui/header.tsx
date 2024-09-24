@@ -51,10 +51,10 @@ const Header = async () => {
   const { myProfile: user } = await getUserData()
   const capitalLetters = getCapitalLetters(user.name)
 
-  const tabs = links.map(({ title, value }, index) => (
+  const tabs = links.map(({ value }, index) => (
     <TabsContent value={value} className="hidden" key={index}></TabsContent>
   ))
-  const navLinks = links.map(({ title, value }, index) => (
+  const navLinks = links.map(({ title }, index) => (
     <Link
       href="#"
       className="text-muted-foreground hover:text-foreground"

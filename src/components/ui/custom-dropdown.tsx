@@ -25,7 +25,7 @@ const CustomDropdown = ({
   avatarFallback,
   user: { avatar, name },
 }: CustomDropdownProps) => {
-  const [pending, startTransition] = useTransition()
+  const [_, startTransition] = useTransition()
 
   return (
     <DropdownMenu>
@@ -36,7 +36,7 @@ const CustomDropdown = ({
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>{name}'s Account</DropdownMenuLabel>
+        <DropdownMenuLabel>{name}&apos;s Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="flex gap-1 items-center">
           <User className="size-[14px]" />

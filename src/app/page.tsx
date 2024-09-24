@@ -53,7 +53,7 @@ const tabsTriggersContent = [
 ]
 
 export default function Home() {
-  const tabsContent = tabsTriggersContent.map(({ title, value }, index) => {
+  const tabsContent = tabsTriggersContent.map(({ value }, index) => {
     if (value === "time-off") {
       return ""
     }
