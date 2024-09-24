@@ -1,101 +1,102 @@
-import Image from "next/image";
+import { Header } from "@/components/ui/header"
+
+import { Tabs, TabsContent } from "@/components/ui/tabs"
+
+import UpcomingTimeoff from "@/components/blocks/upcoming-time-off"
+import History from "@/components/blocks/history"
+import Timeoff from "@/components/blocks/time-off"
+import ProfileDetails from "@/components/blocks/profile-details"
+import Navigation from "@/components/blocks/navigation"
+
+
+const tabsTriggersContent = [
+  {
+    title: "Personal",
+    value: "personal",
+  },
+  {
+    title: "Job",
+    value: "job",
+  },
+  {
+    title: "Time Off",
+    value: "time-off",
+  },
+  {
+    title: "Emergency",
+    value: "emergency",
+  },
+  {
+    title: "Documents",
+    value: "documents",
+  },
+  {
+    title: "Notes",
+    value: "notes",
+  },
+  {
+    title: "Benefits",
+    value: "benefits",
+  },
+  {
+    title: "Training",
+    value: "training",
+  },
+  {
+    title: "Assets",
+    value: "assets",
+  },
+  {
+    title: "More",
+    value: "more",
+  },
+]
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const tabsContent = tabsTriggersContent.map(({ title, value }, index) => {
+    if (value === "time-off") {
+      return ""
+    }
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    return (
+      <TabsContent
+        key={index}
+        value={value}
+        className="bg-main-white mt-0 xl:rounded-b-2xl max-w-[1047px] w-full"
+      >
+        <div className="grid place-content-center size-full max-w-[1047px] h-screen">
+          <h1 className="text-2xl">There is nothing here</h1>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </TabsContent>
+    )
+  })
+
+  return (
+    <div className="flex min-h-screen w-full flex-col bg-main-light">
+      <Header />
+
+      <Tabs defaultValue="time-off" className="lg:w-full p-0">
+        <Navigation
+          tabsContent={tabsTriggersContent}
+        />
+
+        <div className="flex lg:w-full lg:justify-center xl:pb-4">
+          <div className="flex gap-[25px] max-w-[1297px] w-full justify-center">
+            <ProfileDetails />
+
+            {tabsContent}
+
+            <TabsContent
+              value="time-off"
+              className="bg-main-white mt-0 xl:rounded-b-2xl max-w-[1047px] w-full"
+            >
+              <Timeoff />
+              <UpcomingTimeoff />
+              <History />
+            </TabsContent>
+          </div>
+        </div>
+      </Tabs>
     </div>
-  );
+  )
 }
